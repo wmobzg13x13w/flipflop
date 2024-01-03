@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/welcomestyle.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" type="image/png" href="assets/vache.png" />
+
+    <title>Vache Taureau</title>
+  </head>
+  <body>
+    <div id="second-container">
+      <h1 class="select__text">Select Game Mode</h1>
+
+      <div class="main__categories__container">
+        <div class="categories__container">
+          <button
+            id="puzzles__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="1player"
+          >
+            <img src="assets/man.png" alt="model" />
+            <p>1 Player</p>
+          </button>
+        </div>
+
+        <div class="categories__container">
+          <button
+            id="entertaiments__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="2players"
+          >
+            <img src="assets/player-versus-player.png" alt="model" />
+            <p>2 Players</p>
+          </button>
+        </div>
+      </div>
+      <div class="leaderboard-container">
+        <button class="button-33 leaderboard scoreboard" id="scoreboard">
+          Leaderboard
+        </button>
+      </div>
+    </div>
+    <div class="container score closed" id="leaderboard">
+      <h1 class="select__text">Scoreboard</h1>
+      <table id="leaderboard">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Incorrect Guesses</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class="close-button">
+        <span class="close-symbol">&times;</span>
+      </button>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

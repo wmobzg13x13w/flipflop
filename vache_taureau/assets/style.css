@@ -1,0 +1,378 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Use 100vh for 100% of the viewport height */
+  gap: 50px;
+}
+
+.gamemode {
+  border: 2px solid #000000; /* Add a border style and size */
+  border-radius: 50%;
+  padding: 20px;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.double_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Use justify-content for spacing between items */
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.moving-image {
+  position: absolute;
+  z-index: 300;
+  display: none;
+}
+.container {
+  position: relative;
+  color: black;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent white background for the game container */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Add more styles for your game elements as needed */
+
+/* CSS */
+.button-33 {
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input {
+  max-width: 190px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 15px 5px 10px 20px;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.radio-input input {
+  display: none;
+}
+
+.radio-input {
+  --container_width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: #fff;
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 1px solid rgba(53, 52, 52, 0.226);
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 14px;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 4);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+
+.radio-input label:has(input:checked) {
+  color: #fff;
+}
+
+.radio-input label:has(input:checked) ~ .selection {
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  display: inline-block;
+}
+
+.radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 4));
+}
+
+.radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 4));
+}
+
+.radio-input label:nth-child(3):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 2 / 4));
+}
+
+.radio-input label:nth-child(4):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 3 / 4));
+}
+
+.score {
+  z-index: 3000;
+  position: absolute;
+  backdrop-filter: blur(3px);
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#leaderboard {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: sans-serif;
+  margin-top: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+#leaderboard.closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#leaderboard th,
+#leaderboard td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#leaderboard th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 0; /* Hide button text */
+  padding: 5px; /* Create space for symbol */
+  cursor: pointer;
+}
+
+.close-symbol {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+#score {
+  /* ... other styles ... */
+  z-index: 10;
+  transition: opacity 0.5s ease-in-out; /* Transition for fade-out */
+  opacity: 0; /* Initially hidden */
+
+  pointer-events: none;
+}
+
+#score.open {
+  opacity: 1; /* Visible when open */
+  pointer-events: all;
+}
+
+.container_felx {
+  display: flex;
+  align-items: center; /* Optional: Vertically align elements */
+}
+.input1 {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 15px 5px 10px 20px;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.leaderboard-container {
+  margin-top: 50px;
+  text-align: center; /* Center the leaderboard button within its container */
+}
+
+#leaderboard {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: sans-serif;
+  margin-top: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+#leaderboard.closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#leaderboard th,
+#leaderboard td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#leaderboard th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 0; /* Hide button text */
+  padding: 5px; /* Create space for symbol */
+  cursor: pointer;
+}
+
+.close-symbol {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+#score {
+  /* ... other styles ... */
+  z-index: 10;
+  transition: opacity 0.5s ease-in-out; /* Transition for fade-out */
+  opacity: 0; /* Initially hidden */
+
+  pointer-events: none;
+}
+
+#score.open {
+  opacity: 1; /* Visible when open */
+  pointer-events: all;
+}
+
+.button-33 {
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}

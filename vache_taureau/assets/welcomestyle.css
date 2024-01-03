@@ -1,0 +1,149 @@
+* {
+  font-family: "Kumbh Sabs", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to left,
+    #4caf50,
+    #87cefa
+  ); /* Gradient background */
+  color: #ffffff; /* Text color */
+}
+.main__container {
+  height: auto;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.title__container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title__container h1 {
+  padding: 20px 0;
+  font-size: 7rem;
+  color: #f0a500;
+  background-color: #1b1a17;
+  margin-bottom: 50px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.title__container p {
+  color: #e6d5b8;
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+
+#play__button {
+  height: 50px;
+  width: 220px;
+  border: none;
+  outline: none;
+  color: #1b1a17;
+  background-color: #f0a500;
+  font-size: 2rem;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+#play__button:hover {
+  cursor: pointer;
+  background: #e9b648;
+  transition: all 0.3s ease;
+}
+
+#play__button:active {
+  transform: scale(0.9);
+}
+
+.select__text {
+  padding-top: 60px;
+  color: #e6d5b8;
+  width: 100%;
+  text-align: center;
+  font-size: 64px;
+}
+
+.select__input__text {
+  padding-top: 120px;
+  color: #e6d5b8;
+  width: 100%;
+  text-align: center;
+  font-size: 64px;
+}
+
+.input__container {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+.input__container table {
+  text-align: center;
+}
+
+.input__field {
+  height: 40px;
+  width: 420px;
+  padding: 0 5px;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e6d5b8;
+  background: transparent;
+  color: #e6d5b8;
+}
+
+.input__field:focus {
+  border-bottom: 2px solid #f0a500;
+  color: #f0a500;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #e6d5b8;
+  opacity: 0.5;
+}
+
+.main__categories__container {
+  display: flex;
+  padding: 50px 100px;
+}
+
+.categories__container {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.categories__button {
+  text-decoration: none;
+  color: #e6d5b8;
+  font-size: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.categories__button:hover {
+  color: #f0a500;
+  cursor: pointer;
+}
+
+.categories__container img {
+  width: 260px;
+  border-radius: 50%;
+}
+
+.categories__container img:hover {
+  width: 280px;
+  transition: all 0.3s ease;
+}

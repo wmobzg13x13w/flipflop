@@ -1,0 +1,129 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vache taureau</title>
+  <script src="assets/scriptcom.js"></script>
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" type="image/png" href="assets/vache.png" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container1" id="container1">
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+  </div>
+  <div class="container" id="container">
+    <img
+      src="assets/vache1.png"
+      alt="Image 1"
+      class="moving-image"
+      id="image1"
+      height="200"
+      width="200"
+    />
+    <img
+      src="assets/taureau.png"
+      alt="Image 2"
+      class="moving-image"
+      id="image2"
+      height="200"
+      width="200"
+    />
+    <h1>Vache taureau</h1>
+    <h3>Initialisation</h3>
+    <p>Choose the length of the number :</p>
+    <div class="radio-input">
+      <label>
+        <input value="3" name="option" id="value-1" type="radio" checked="" />
+        <span>3</span>
+      </label>
+      <label>
+        <input value="4" name="option" id="value-2" type="radio" />
+        <span>4</span>
+      </label>
+      <label>
+        <input value="5" name="option" id="value-3" type="radio" />
+        <span>5</span>
+      </label>
+      <label>
+        <input value="6" name="option" id="value-3" type="radio" />
+        <span>6</span>
+      </label>
+      <span class="selection"></span>
+    </div>
+    <br />
+    <button onclick="rand()" class="button-33">Generate</button>
+
+    <div class="double_container">
+      <div class="">
+        <p>Guess a <span id="enter"> 3 </span> digits number :</p>
+        <div class="">
+          <input type="number" id="guessInput" class="input" />
+
+          <button onclick="checkGuess()" class="button-33">Submit Guess</button>
+        </div>
+
+        <p id="messagePL"></p>
+        <p id="attemptsPL"></p>
+      </div>
+      <div class="">
+        <p>
+          The computer will guess a <span id="enter"> 3 </span> digits number :
+        </p>
+
+        <p id="messageCOM"></p>
+        <p id="attemptsCOM"></p>
+      </div>
+    </div>
+  </div>
+</body>

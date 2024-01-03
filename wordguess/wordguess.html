@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/vache.png" />
+  </head>
+  <body>
+    <div id="second-container">
+      <h1 class="select__text">Select Game Theme</h1>
+
+      <div class="main__categories__container">
+        <div class="categories__container">
+          <button
+            id="puzzles__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="it"
+          >
+            <img src="assets/programming.png" alt="model" />
+            <p>IT</p>
+          </button>
+        </div>
+
+        <div class="categories__container">
+          <button
+            id="entertaiments__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="fruits"
+          >
+            <img src="assets/healthy-food.png" alt="model" />
+            <p>
+              Fruits and <br />
+              vegetables
+            </p>
+          </button>
+        </div>
+      </div>
+      <div class="leaderboard-container">
+        <button class="button-33 leaderboard scoreboard" id="scoreboard">
+          Leaderboard
+        </button>
+      </div>
+    </div>
+    <div class="container score closed" id="leaderboard">
+      <h1 class="select__text">Scoreboard</h1>
+      <table id="leaderboard">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Incorrect Guesses</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class="close-button">
+        <span class="close-symbol">&times;</span>
+      </button>
+    </div>
+    <script>
+      function selectCategorie(value) {
+        switch (value) {
+          case "it":
+            window.window.location.href = "index.html?theme=it";
+            break;
+          case "fruits":
+            window.window.location.href = "index.html?theme=fruits";
+            break;
+        }
+      }
+
+      const scores = JSON.parse(localStorage.getItem("wordguessdata")) || [];
+
+      const tbody = document.querySelector("#leaderboard tbody");
+
+      if (scores.length > 0) {
+        scores.forEach((score) => {
+          const row = tbody.insertRow();
+          row.insertCell().textContent = score.name;
+          row.insertCell().textContent = score.email;
+          row.insertCell().textContent = score.time;
+        });
+      } else {
+        const noScoresRow = tbody.insertRow();
+        noScoresRow.insertCell().colSpan = 3;
+        noScoresRow.textContent = "No scores yet!";
+      }
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => {
+        document.getElementById("leaderboard").classList.add("closed");
+      });
+      const scoreboard = document.querySelector(".scoreboard");
+      scoreboard.addEventListener("click", () => {
+        document.getElementById("leaderboard").classList.remove("closed");
+      });
+    </script>
+  </body>
+</html>

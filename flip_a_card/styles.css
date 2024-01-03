@@ -1,0 +1,442 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.memory-game {
+  width: 560px;
+  height: 560px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  padding: 50px 5px;
+}
+.main__categories__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.leaderboard-container {
+  margin-top: 50px;
+  text-align: center; /* Center the leaderboard button within its container */
+}
+.categories__container {
+  width: 100%;
+  text-align: center;
+}
+
+.categories__container p {
+  margin: 0;
+}
+
+.categories__button {
+  text-decoration: none;
+  color: #e6d5b8;
+  font-size: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.categories__button:hover {
+  color: #f0a500;
+  cursor: pointer;
+}
+
+.categories__container img {
+  width: 260px;
+  border-radius: 50%;
+}
+
+.categories__container img:hover {
+  width: 280px;
+  transition: all 0.7s ease;
+}
+
+.container {
+  width: 500px;
+  position: relative;
+  color: black;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent white background for the game container */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score {
+  z-index: 3000;
+  position: absolute;
+  backdrop-filter: blur(3px);
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#game {
+  margin: auto;
+  padding: 20px;
+}
+
+#word,
+#guesses {
+  font-size: 24px;
+}
+
+#word {
+  font-family: "Rubik Doodle Shadow", sans-serif;
+  margin: auto;
+  color: #4caf50;
+}
+
+#guesses {
+  margin-bottom: 15px;
+}
+
+#letter {
+  width: 30px;
+  text-align: center;
+}
+
+.button-33 {
+  background: linear-gradient(to left, #4caf50, #87cefa);
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.input {
+  max-width: 190px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 15px 5px 10px 20px;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.input1 {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 15px 5px 10px 20px;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.main__container {
+  height: auto;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.title__container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title__container h1 {
+  padding: 20px 0;
+  font-size: 7rem;
+  color: #f0a500;
+  background-color: #1b1a17;
+  margin-bottom: 50px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.title__container p {
+  color: #e6d5b8;
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+
+#play__button {
+  height: 50px;
+  width: 220px;
+  border: none;
+  outline: none;
+  color: #1b1a17;
+  background-color: #f0a500;
+  font-size: 2rem;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+#play__button:hover {
+  cursor: pointer;
+  background: #e9b648;
+  transition: all 0.3s ease;
+}
+
+#play__button:active {
+  transform: scale(0.9);
+}
+
+.select__text {
+  color: #e6d5b8;
+  width: 100%;
+  text-align: center;
+  font-size: 64px;
+  margin: 0;
+}
+
+.select__input__text {
+  padding-top: 120px;
+  color: #e6d5b8;
+  width: 100%;
+  text-align: center;
+  font-size: 64px;
+}
+
+.input__container {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+.input__container table {
+  text-align: center;
+}
+
+.input__field {
+  height: 40px;
+  width: 420px;
+  padding: 0 5px;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e6d5b8;
+  background: transparent;
+  color: #e6d5b8;
+}
+
+.input__field:focus {
+  border-bottom: 2px solid #f0a500;
+  color: #f0a500;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #e6d5b8;
+  opacity: 0.5;
+}
+
+.main__categories__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.leaderboard-container {
+  margin-top: 50px;
+  text-align: center; /* Center the leaderboard button within its container */
+}
+.categories__container {
+  width: 100%;
+  text-align: center;
+}
+
+.categories__container p {
+  margin: 0;
+}
+
+.categories__button {
+  text-decoration: none;
+  color: #e6d5b8;
+  font-size: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.categories__button:hover {
+  color: #f0a500;
+  cursor: pointer;
+}
+
+.categories__container img {
+  width: 260px;
+  border-radius: 50%;
+}
+
+.categories__container img:hover {
+  width: 280px;
+  transition: all 0.7s ease;
+}
+
+#leaderboard {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: sans-serif;
+  margin-top: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+#leaderboard.closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#leaderboard th,
+#leaderboard td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#leaderboard th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 0; /* Hide button text */
+  padding: 5px; /* Create space for symbol */
+  cursor: pointer;
+}
+
+.close-symbol {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+#score {
+  /* ... other styles ... */
+  z-index: 10;
+  transition: opacity 0.5s ease-in-out; /* Transition for fade-out */
+  opacity: 0; /* Initially hidden */
+
+  pointer-events: none;
+}
+
+#score.open {
+  opacity: 1; /* Visible when open */
+  pointer-events: all;
+}
+
+.container_felx {
+  display: flex;
+  align-items: center; /* Optional: Vertically align elements */
+}

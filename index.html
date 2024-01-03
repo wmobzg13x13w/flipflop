@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Guessing Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="second-container">
+      <h1 class="select__text">Choose Game</h1>
+
+      <div class="main__categories__container">
+        <div class="categories__container">
+          <button
+            id="puzzles__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="vache"
+          >
+            <img src="assets/cow.png" alt="model" />
+            <p>Vache teaurau</p>
+          </button>
+        </div>
+        <div class="categories__container">
+          <button
+            id="puzzles__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="flip"
+          >
+            <img src="assets/memory.png" alt="model" />
+            <p>Flip a card</p>
+          </button>
+        </div>
+
+        <div class="categories__container">
+          <button
+            id="entertaiments__button"
+            class="categories__button"
+            onclick="selectCategorie(value)"
+            value="guess"
+          >
+            <img src="assets/guess.png" alt="model" />
+            <p>Guess the word</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function selectCategorie(value) {
+        switch (value) {
+          case "vache":
+            window.location.href = "/vache_taureau/index.html";
+            break;
+          case "flip":
+            window.location.href = "/flip_a_card/flipcard.html";
+            break;
+          case "guess":
+            window.location.href = "/wordguess/wordguess.html";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Flip A Card</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="assets/vache.png" />
+  </head>
+  <body>
+    <section class="memory-game">
+      <div class="memory-card">
+        <img class="front-face" src="assets/css.svg" alt="Css" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/css.svg" alt="Css" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card">
+        <img class="front-face" src="assets/vue.svg" alt="Vue" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/vue.svg" alt="Vue" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card">
+        <img class="front-face" src="assets/angular.svg" alt="Angular" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/angular.svg" alt="Angular" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card">
+        <img class="front-face" src="assets/nodejs.svg" alt="nodejs" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/nodejs.svg" alt="nodejs" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card">
+        <img class="front-face" src="assets/html.svg" alt="Html" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/html.svg" alt="Html" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card">
+        <img class="front-face" src="assets/react.svg" alt="React" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+      <div class="memory-card">
+        <img class="front-face" src="assets/react.svg" alt="React" />
+        <img class="back-face" src="web-programming.png" alt="JS Badge" />
+      </div>
+    </section>
+    <div class="container_felx">
+      <button class="button-33 leaderboard scoreboard" id="start">
+        Start Game
+      </button>
+      <span id="timer" class="select__text">00:00:00</span>
+    </div>
+
+    <div class="container score" id="score">
+      <h2 id="msg"></h2>
+      <form class="form">
+        <label for="name">Name</label>
+        <input type="text" class="input1" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="text" class="input1" name="email" required />
+
+        <button id="save" class="button-33" type="submit">Save</button>
+      </form>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
